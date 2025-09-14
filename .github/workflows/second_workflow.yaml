@@ -1,5 +1,5 @@
 # Имя
-name: First Workflow 
+name: Second Workflow 
 
 
 on: push
@@ -13,11 +13,19 @@ jobs:
         # Шаги - что будем делать
         steps:
             # Название
-            - name: Display some Text
-            # Команда/Шаг (Прописать текст внутри VM)
-              run: echo "Some Text"
-            # 2-я Команда/Шаг
-            - name: Command in Multiline
-              run: |
-                node -v 
-                npm -v
+            - name: Display Node Version on Ubuntu
+              run: node -v
+    # Имя 2-й job'ы (Запускается параллельно с первой job)
+    run-parallel-command:
+        runs-on: windows-latest
+        steps:
+            - name: Display Node Version on Windows
+              run: node -v
+    # Имя 3-й job'ы ()
+    run-second-command:
+        runs-on: macos-latest
+        # Запускается после job'ы run-first-command
+        needs: run-first-command
+        steps:
+            - name: Display Node Version on MacOs
+              run: node

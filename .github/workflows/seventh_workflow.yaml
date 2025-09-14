@@ -1,0 +1,17 @@
+name: Seventh Workflow 
+
+on:
+  schedule:
+    # Запустится по таймеру
+    - cron: "*/2 * * * *" # Every 2 minute
+
+jobs: 
+    first-command:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Event vars
+        # GITHUB_SHA - от какого коммита запускается workflow 
+        # GITHUB_REF - на какой ветке этот коммит
+          run: | 
+            echo $GITHUB_SHA 
+            echo $GITHUB_REF

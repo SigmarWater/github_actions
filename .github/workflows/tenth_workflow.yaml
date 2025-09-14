@@ -5,6 +5,9 @@ on:
         branches:
             - main
 
+# Кастомный заголовок
+run-name: "Display Context Info"
+
 jobs:
     first-command:
         runs-on: ubuntu-latest
@@ -18,3 +21,5 @@ jobs:
                 echo '${{toJson(runner)}}'
                 echo '${{toJson(job)}}'
                 echo '${{toJson(steps)}}'
+            - name: Show Steps Context 
+              run: echo '${{toJson(steps)}}'

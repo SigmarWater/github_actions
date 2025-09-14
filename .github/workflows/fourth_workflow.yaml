@@ -12,6 +12,6 @@ jobs:
     hello-command:
         runs-on: ubuntu-latest 
         steps:
-            - name: List Files
-              run: echo "Hello"
+            - name: Print Hello
+              run: echo "Hello !"
         

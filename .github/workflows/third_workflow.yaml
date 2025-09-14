@@ -5,11 +5,16 @@ jobs:
     run-first-command:
         runs-on: ubuntu-latest
         steps:
-            - name: List Files and Copy Repo
+            - name: List Files
              # В этом моменте будет пусто в дириктории
               run: ls -a
-            - uses: actions/checkout@v4
-
+            #- uses: actions/checkout@v4
+            - name: Copy Files
+              run: |
+                git init
+                git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/SigmarWater/$GITHUB_REPOSITORY.git"
+                git fetch origin
+                git checkout main
             - name: List Files
              # В этом моменте будут файлы в дириктории
               run: ls -a

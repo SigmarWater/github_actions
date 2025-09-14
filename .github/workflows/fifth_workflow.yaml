@@ -1,7 +1,11 @@
 name: Fifth Workflow (name of workflow)
  
-# Все триггеры, на которые workflow будет срабатывать
-on: [push, issues, pull_request]
+
+on: 
+  issues:
+    types: [edited, deleted]
+  pull_request:
+    types: [assigned, closed]
 
 jobs:
     run-first-command:

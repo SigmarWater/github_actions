@@ -1,0 +1,30 @@
+name: Sixth Workflow (name workflow)
+
+
+on:
+    # Для того, чтобы триггер сработал, должны выполниться все условия
+    # branches + tags + paths   
+    push:
+      branches: 
+        - main # Workflow будет срабатывать при пуше, но только в ветку main
+        - "page/*" # при пуше в ветки с началом page/ (page/about page/blog) 
+        - "!page/about" # исключаем эту ветку
+        # Но без слеша, то есть так нельзя page/about/penis - так как есть слеш
+        - "page/**" # теперь слеш катируется page/about/penis - можно
+      
+      tags:
+        - "v1.*"  # v1.2 v1.2.1 ... Запускаем workflow при пуше во все теги с началом v1.
+        - "!v1.2.1" # при пуше в этот тег workflow не запускается
+      # Запускать Workflow только тогда, когда push изменяет какие-то именно файлы
+      paths:
+        - "**.html"
+jobs:
+  run-first-command:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Event vars
+        # GITHUB_SHA - от какого коммита запускается workflow 
+        # GITHUB_REF - на какой ветке этот коммит
+          run: | 
+            echo $GITHUB_SHA 
+            echo $GITHUB_REF

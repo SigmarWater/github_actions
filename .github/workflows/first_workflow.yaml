@@ -1,0 +1,18 @@
+# Имя
+name: First Workflow 
+
+#event
+on: [push]
+
+# Один или несколько job
+jobs:
+    # Имя 1-й job'ы
+    run-first-command:
+        # Определяем runner
+        runs-on: ubuntu-latest
+        # Шаги - что будем делать
+        steps:
+            # Название
+            - name: Display some Text
+            # Команда. (Прописать текст внутри VM)
+              run: echo "Some Text"

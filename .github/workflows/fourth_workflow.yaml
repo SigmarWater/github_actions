@@ -9,9 +9,16 @@ on:
           - completed
 
 jobs:
-    hello-command:
-        runs-on: ubuntu-latest 
+    succress-command:
+        runs-on: ubuntu-latest
+        # в github.event.workflow_run.conclusion хранится success
+        if: ${{github.event.workflow_run.conclusion == 'success'}}
         steps:
-            - name: Print Hello
-              run: echo "Hello !"
-        
+            - name: Print Success
+              run: echo "Success"
+    failure-command:
+        runs-on: ubuntu-latest 
+        if: ${{github.event.workflow_run.conclusion == 'failure'}}
+        steps:
+            - name: Print fail
+              run: echo "Failed"

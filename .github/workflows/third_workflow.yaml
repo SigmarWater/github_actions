@@ -13,5 +13,4 @@ jobs:
             - name: List Files
              # В этом моменте будут файлы в дириктории
               run: ls -a
-            - uses: actions/checkout@v4
 

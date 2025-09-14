@@ -1,0 +1,20 @@
+name: Tenth Workflow 
+
+on: 
+    push:
+        branches:
+            - main
+
+jobs:
+    first-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Context and Expressions
+            # id шага- чтобы в логах найти инфу об этом шаге
+              id: context-expression
+            # github - context toJson(github) - выражение
+              run: |
+                echo ${{toJson(github)}}
+                echo ${{toJson(runner)}}
+                echo ${{toJson(job)}}
+                echo ${{toJson(steps)}}

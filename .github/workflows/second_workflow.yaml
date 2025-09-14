@@ -1,0 +1,23 @@
+# Имя
+name: First Workflow 
+
+
+on: push
+
+# Один или несколько job
+jobs:
+    # Имя 1-й job'ы
+    run-first-command:
+        # Определяем runner
+        runs-on: ubuntu-latest
+        # Шаги - что будем делать
+        steps:
+            # Название
+            - name: Display some Text
+            # Команда/Шаг (Прописать текст внутри VM)
+              run: echo "Some Text"
+            # 2-я Команда/Шаг
+            - name: Command in Multiline
+              run: |
+                node -v 
+                npm -v

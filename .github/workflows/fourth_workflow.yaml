@@ -1,0 +1,17 @@
+name: Fourth Workflow (name)
+
+on: 
+    # Ожидаем завершения какого-то workflow
+    workflow_run:
+        workflows: [Third Workflow]
+        types:
+        # Запускаем, когда Third Workflow завершился
+          - completed
+
+jobs:
+    hello-command:
+        runs-on: ubuntu-latest 
+        steps:
+            - name: List Files
+              run: echo "Hello"
+        

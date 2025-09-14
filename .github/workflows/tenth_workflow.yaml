@@ -14,7 +14,7 @@ jobs:
               id: context-expression
             # github - context toJson(github) - выражение
               run: |
-                echo ${{toJson(github)}}
-                echo ${{toJson(runner)}}
-                echo ${{toJson(job)}}
-                echo ${{toJson(steps)}}
+                echo '${{toJson(github)}}'
+                echo '${{toJson(runner)}}'
+                echo '${{toJson(job)}}'
+                echo '${{toJson(steps)}}'

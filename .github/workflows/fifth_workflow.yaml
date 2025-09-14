@@ -1,0 +1,15 @@
+name: Fifth Workflow (name of workflow)
+ 
+# Все триггеры, на которые workflow будет срабатывать
+on: [push, issues, pull_request]
+
+jobs:
+    run-first-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Event vars
+            # GITHUB_SHA - от какого коммита запускается workflow 
+            # GITHUB_REF - на какой ветке этот коммит
+              run: | 
+                echo $GITHUB_SHA 
+                echo $GITHUB_REF

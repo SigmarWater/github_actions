@@ -3,7 +3,7 @@ name: Seventh Workflow
 on:
   schedule:
     # Запустится по таймеру
-    - cron: "*/2 * * * *" # Every 2 minute
+    - cron: "*/5 * * * *" # Every 5 minute
 
 jobs: 
     first-command:

@@ -14,6 +14,10 @@ jobs:
             # Переменная на уровне job'ы (run-first-command)
             JOB_CUSTOM_VAR: JOB 1
         steps:
+            - name: Set New Var
+            # Записываем переменную NEW_CUSTOM_VAR со значением New Value 
+            # в папку по пути GITHUB_ENV, где лежат переменные
+              run: echo "NEW_CUSTOM_VAR=New Value" >> "$GITHUB_ENV"
             - name: Vars
               env:
                 # Переменная на уровне шага Vars
@@ -27,5 +31,5 @@ jobs:
                 echo '${{env.WF_CUSTOM_VAR}}'
                 echo $JOB_CUSTOM_VAR
                 echo $STEP_CUSTOM_VAR
-
+                echo $NEW_CUSTOM_VAR
     

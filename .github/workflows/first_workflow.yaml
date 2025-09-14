@@ -1,8 +1,8 @@
 # Имя
 name: First Workflow 
 
-#event
-on: [push]
+#event workflow_dispatch - ручной запуск
+on: workflow_dispatch
 
 # Один или несколько job
 jobs:

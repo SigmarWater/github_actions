@@ -5,9 +5,13 @@ jobs:
     run-first-command:
         runs-on: ubuntu-latest
         steps:
-            - name: Command in Multiline
-             # pwd - Рабочий каталог ls -a - файлы в рабочем каталоге
-              run: |
-                pwd
-                ls -a
+            - name: List Files and Copy Repo
+             # В этом моменте будет пусто в дириктории
+              run: ls -a
+            - uses: actions/checkout@v4
+
+            - name: List Files
+             # В этом моменте будут файлы в дириктории
+              run: ls -a
+            - uses: actions/checkout@v4
 

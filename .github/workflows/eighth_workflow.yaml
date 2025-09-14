@@ -13,8 +13,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Event vars
-        # GITHUB_SHA - от какого коммита запускается workflow 
-        # GITHUB_REF - на какой ветке этот коммит
+        # Используем input
           run: | 
-            echo $GITHUB_SHA 
-            echo $GITHUB_REF
+            echo "Title: ${{ inputs.titleCustom }}" 

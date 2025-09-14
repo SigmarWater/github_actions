@@ -5,7 +5,7 @@ on: [push]
 jobs:
     run-first-commond:
         runs-on: ubuntu-latest 
-        environment: "production"
+        environment: "staging"
         steps:
             - name: Our Vars & Secrets
               run: |

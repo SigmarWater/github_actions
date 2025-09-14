@@ -7,7 +7,7 @@ jobs:
         steps:
             - name: List Files
              # В этом моменте будет пусто в дириктории
-              run: ls -a
+              run: lszvzxv -a
             #- uses: actions/checkout@v4
             - name: Copy Files
               run: |

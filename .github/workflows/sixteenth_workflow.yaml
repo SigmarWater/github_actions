@@ -5,10 +5,11 @@ on: push
 
 jobs:
     testing-matrix-job:
-        runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: [12, 14, 18]
+                values: [12, 14, 18]
+                os: [ubuntu-latest, windows-latest]
+        runs-on: '${{matrix.os}}'
         steps:
             - name: Write version 
-              run: echo '${{matrix.node-version}}'
+              run: echo '${{matrix.values}}'

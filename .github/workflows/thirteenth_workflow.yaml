@@ -3,7 +3,7 @@ on: push
 
 run-name: Четырнадцатый воркфлоу
 
-jobs:
+jobs:  
     # failure() - неудачный предыдущий шаг
     # succsecc() - удачный предыдущий шаг
     # always() - возвращает true при любом состоянии 
@@ -11,6 +11,9 @@ jobs:
     job:
         runs-on: ubuntu-latest
         steps:
+            - name: Failure Step 
+              id: error-step
+              run: exit 1
             - name: First step
               run: sleep 30 
             - name: Runs on Cancelled 
@@ -23,5 +26,5 @@ jobs:
               if: ${{success()}}
               run: echo "Runs on Success"
             - name: Runs on failure
-              if: ${{failure()}}
+              if: ${{failure() && steps.error-step.conclusion == 'failure'}}
               run: echo "Runs on Failure"

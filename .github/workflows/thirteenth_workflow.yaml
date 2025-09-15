@@ -1,0 +1,27 @@
+name: Thirteenth Workflow 
+on: push 
+
+run-name: Четырнадцатый воркфлоу
+
+jobs:
+    # failure() - неудачный предыдущий шаг
+    # succsecc() - удачный предыдущий шаг
+    # always() - возвращает true при любом состоянии 
+    # canceled() - возвращает true, если job завершен нажатием кнопки в GitHub Actions
+    job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: First step
+              run: sleep 30 
+            - name: Runs on Cancelled 
+              if: ${{cancelled()}}
+              run: echo "Runs on Cancelled"
+            - name: Runs on any case 
+              if: ${{always()}}
+              run: echo "Runs on any case"
+            - name: Runs on Success
+              if: ${{success()}}
+              run: echo "Runs on Success"
+            - name: Runs on failure
+              if: ${{failure()}}
+              run: echo "Runs on Failure"

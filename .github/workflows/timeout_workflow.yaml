@@ -8,8 +8,10 @@ jobs:
     test-timeout:
         runs-on: ubuntu-latest
         # Задаем одну минуту на выполнение всего job'а
-        timeout-minutes: 1
         steps:
             - name: Some step
+              timeout-minutes: 1
             # Спим 200 сек
               run: sleep 200
+            - name: Print Hello
+              run: echo "Hello, Sigmar"

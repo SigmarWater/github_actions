@@ -1,0 +1,21 @@
+name: Docker Test
+
+run-name: Docker and GitHub Actions
+
+on: push 
+
+jobs:
+    test-docker-container:
+        runs-on: ubuntu-latest
+        # Говорим, что мы используем контейнер
+        container:
+            # Образ контейнера, который хотим использовать
+            image: node:21-alpine3.17 
+            # Переменные окружения
+            env:  
+              NODE_ENV: development
+            ports:
+                - 80
+        steps: 
+            - name: Display Node Version
+              run: node -v

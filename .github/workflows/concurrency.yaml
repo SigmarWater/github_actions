@@ -1,8 +1,5 @@
-name: Test Timeout 
-
-run-name: Timeout 
-
-on: push 
+name: Concurrency Testing
+on: workflow_dispatch 
 
 jobs:
     test-timeout:
@@ -12,5 +9,5 @@ jobs:
             - name: Some step
               timeout-minutes: 1
             # Спим 200 сек
-              run: sleep 200
+              run: sleep 50
             

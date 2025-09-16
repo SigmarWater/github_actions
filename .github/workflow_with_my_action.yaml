@@ -1,0 +1,11 @@
+name: Print Hello From My Action
+on: push 
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+      # Используем наш actions
+      - uses: ./.github/actions/print-hello
+      

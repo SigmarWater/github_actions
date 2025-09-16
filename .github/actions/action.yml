@@ -1,0 +1,13 @@
+# Имя action
+name: 'Print Hello'
+#Описание action
+description: "Принтит hello"
+
+runs:
+  # Тип action, который мы создаем
+  using: 'composite'  
+  # Создаем шаги
+  steps:
+  - name: Print Hello
+    run: echo "Hello Sigma"
+    shell: bash 

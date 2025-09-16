@@ -1,6 +1,10 @@
 name: Concurrency Testing
 on: workflow_dispatch 
 
+# Создаем id для workflow, чтобы GitHub определял защенные wokflow по нему
+# Придумываем id сами
+concurrency:  concurrency-testing  
+
 jobs:
     test-timeout:
         runs-on: ubuntu-latest

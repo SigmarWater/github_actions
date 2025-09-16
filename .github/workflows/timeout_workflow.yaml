@@ -1,0 +1,15 @@
+name: Test Timeout 
+
+run-name: Timeout 
+
+on: push 
+
+jobs:
+    test-timeout:
+        runs-on: ubuntu-latest
+        # Задаем одну минуту на выполнение всего job'а
+        timeout-minutes: 1
+        steps:
+            - name: Some step
+            # Спим 200 сек
+              run: sleep 200

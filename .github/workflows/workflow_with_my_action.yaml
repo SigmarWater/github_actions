@@ -8,7 +8,8 @@ jobs:
       
       - name: Checkout repo
         uses: actions/checkout@v4  # обязательно если ты используешь локальный action
-
+        with:
+          Name: "Sigma"
       - name: Print Hello World
       # Используем наш actions
         uses: ./.github/actions/print-hello

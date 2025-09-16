@@ -2,6 +2,14 @@
 name: 'Print Hello'
 #Описание action
 description: "Принтит hello"
+# Чтобы получать данные
+inputs:
+  Name:
+    description: "Введи свое имя"
+    required:  
+    default: "Sigmar"
+
+
 
 runs:
   # Тип action, который мы создаем
@@ -9,5 +17,5 @@ runs:
   # Создаем шаги
   steps:
   - name: Print Hello
-    run: echo "Hello Sigma"
+    run: echo "Hello ${{inputs.Name}}"
     shell: bash 

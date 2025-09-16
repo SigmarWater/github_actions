@@ -7,6 +7,9 @@ on: push
 jobs:
     test-docker-container:
         runs-on: ubuntu-latest
+        services:
+          my_sql:
+            image: mysql 
         # Говорим, что мы используем контейнер
         container:
             # Образ контейнера, который хотим использовать
@@ -16,6 +19,12 @@ jobs:
               NODE_ENV: development
             ports:
                 - 80
-        steps: 
+        steps:
+            - name: Display Service Image
+              run: echo '${{toJson(job.services)}}'
             - name: Display Node Version
               run: node -v
+            - name: Print new  Node Version 
+              uses: docker://node18-buster-slim
+              with:
+                args: -v   

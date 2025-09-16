@@ -3,7 +3,11 @@ on: workflow_dispatch
 
 # Создаем id для workflow, чтобы GitHub определял защенные wokflow по нему
 # Придумываем id сами
-concurrency:  concurrency-testing  
+concurrency:  
+    group: concurrency-testing  
+    # Отменяет все предыдущие workflow, и запускает последний в очереди после 
+    #первого запущенного
+    cancel-in-progress: true
 
 jobs:
     test-timeout:

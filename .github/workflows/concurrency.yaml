@@ -5,8 +5,7 @@ on: workflow_dispatch
 # Придумываем id сами
 concurrency:  
     group: concurrency-testing  
-    # Отменяет все предыдущие workflow, и запускает последний в очереди после 
-    #первого запущенного
+    # Отменяет все предыдущие workflow, и запускает последний в очереди 
     cancel-in-progress: true
 
 jobs:

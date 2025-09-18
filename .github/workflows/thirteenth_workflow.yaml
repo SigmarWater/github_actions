@@ -13,6 +13,7 @@ jobs:
         steps:
             - name: Failure Step 
               run: exit 1
+            
             - name: Runs on failure
-              if: ${{failure() && steps.error-step.conclusion == 'failure'}}
+              if: ${{failure()}}
               run: echo "Runs on Failure"

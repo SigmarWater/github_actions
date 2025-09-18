@@ -1,0 +1,11 @@
+name: Name Workflow
+run-name: Name 
+
+on: push 
+
+jobs:
+    Print-name-in-job:
+        uses: ./.github/workflows/workflow.yaml 
+        with:
+            Name: SigmarWater
+

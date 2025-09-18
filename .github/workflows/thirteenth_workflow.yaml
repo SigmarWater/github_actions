@@ -4,7 +4,7 @@ on: push
 run-name: Четырнадцатый воркфлоу
 
 jobs:  
-    # failure() - неудачный предыдущий шаг
+    # failure() - какой-то из шагов неудачный
     # succsecc() - удачный предыдущий шаг
     # always() - возвращает true при любом состоянии 
     # canceled() - возвращает true, если job завершен нажатием кнопки в GitHub Actions
@@ -20,3 +20,6 @@ jobs:
             - name: Runs on failure
               if: ${{failure()}}
               run: echo "Runs on Failure"
+            - name: Runs on success
+              if: ${{success()}}
+              run: echo 'Runs in success'

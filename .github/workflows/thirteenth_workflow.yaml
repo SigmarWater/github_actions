@@ -16,4 +16,7 @@ jobs:
             - name: Runs on any case 
               if: ${{always()}}
               run: echo "Runs on any case"
-           
+            
+            - name: Runs on failure
+              if: ${{failure()}}
+              run: echo "Runs on Failure"

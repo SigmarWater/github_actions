@@ -13,7 +13,7 @@ jobs:
         steps:
             - name: Failure Step 
               run: exit 1
-            
-            - name: Runs on failure
-              if: ${{failure()}}
-              run: echo "Runs on Failure"
+            - name: Runs on any case 
+              if: ${{always()}}
+              run: echo "Runs on any case"
+           

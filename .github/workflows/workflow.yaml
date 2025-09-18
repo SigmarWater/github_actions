@@ -5,7 +5,7 @@ on:
       Name:
         description: "Имя senior golang dev"
         type: string 
-        required: true
+        required: false
         default: Bitok
 
 

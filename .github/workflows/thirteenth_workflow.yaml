@@ -12,7 +12,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Failure Step 
-              run: exit 1
+              run: echo "Куку"
             - name: Runs on any case 
               if: ${{always()}}
               run: echo "Runs on any case"

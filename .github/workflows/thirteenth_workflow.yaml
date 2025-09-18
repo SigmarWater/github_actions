@@ -5,14 +5,19 @@ run-name: Четырнадцатый воркфлоу
 
 jobs:  
     # failure() - какой-то из шагов неудачный
-    # succsecc() - удачный предыдущий шаг
+    # succsecc() - удачны все шаги
     # always() - возвращает true при любом состоянии 
     # canceled() - возвращает true, если job завершен нажатием кнопки в GitHub Actions
     job:
         runs-on: ubuntu-latest
         steps:
             - name: Failure Step 
-              run: echo "Куку"
+              run: exit 1
+            - name: Sleep
+              run: sleep 100
+            - name: Canceled Step 
+              if: ${{cancelled()}}
+              run: echo "Отменили)"
             - name: Runs on any case 
               if: ${{always()}}
               run: echo "Runs on any case"

@@ -1,4 +1,5 @@
 name: Fifteenth Workflow 
+run-name: Artifact
 
 on: push 
 
@@ -12,7 +13,7 @@ jobs:
 
             # Создаем артифакт
             - name: Upload result file 
-              uses: actions/upload-artifact@v3 
+              uses: actions/upload-artifact 
               with:
                 # Ключ для названия файла
                 name: math-result 

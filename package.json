@@ -1,0 +1,24 @@
+{
+  "name": "github_actions",
+  "version": "1.0.0",
+  "description": "Status of Sixteenth Workflow<br>\r <img src=\"https://github.com/SigmarWater/github_actions/actions/workflows/sixteenth_workflow.yaml/badge.svg?branch=main\" />",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SigmarWater/github_actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SigmarWater/github_actions/issues"
+  },
+  "homepage": "https://github.com/SigmarWater/github_actions#readme",
+  "dependencies": {
+    "axios": "^1.12.2"
+  }
+}

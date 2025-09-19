@@ -1,0 +1,25 @@
+name: Fourteenth Workflow 
+
+run-name: Кэш
+
+on: workflow_dispatch
+
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Cache_node_modules
+            # Чтобы обратиться к шагу
+              id: cache-step
+              uses: actions/cache@v3 
+              # Путь, где хранится кэш
+              with:
+                path: ~/.npm
+                # Имя для файла с кэшем
+                key: "cache-file"
+            - name: Display Cache 
+            # Вывод того, что находится в кэше
+              run: echo '${{steps.cache-step.outputs}}'
+            - name: Install node_modules
+              run: npm install

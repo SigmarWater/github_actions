@@ -16,8 +16,17 @@ jobs:
               # Путь, где хранится кэш
               with:
                 path: ~/.npm
-                # Имя для файла с кэшем
-                key: "cache-file"
+                # Имя для файла с кэшем, 
+                # которое обновляется при добавлении зависимостей.
+                # Если не обновить имя, то будет использоваться 
+                #один и тот же старый кэш
+
+                # hashFile выдает хэш при изменении файла. Следовательно workflow не будет находить
+                # файл с таким айдишником и закэширует
+                key: ${{runner.os}}-cache-file-${{hashFiles('**/package-lock.json')}}
+                restore-keys: |
+                  ${{runner.os}}-cache-file
+                  ${{runner.os}}-
             - name: Display Cache 
             # Вывод того, что находится в кэше
               run: echo '${{steps.cache-step.outputs}}'

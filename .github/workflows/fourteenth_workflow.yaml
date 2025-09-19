@@ -24,6 +24,8 @@ jobs:
                 # hashFile выдает хэш при изменении файла. Следовательно workflow не будет находить
                 # файл с таким айдишником и закэширует
                 key: ${{runner.os}}-cache-file-${{hashFiles('**/package-lock.json')}}
+                # Если не находит ключ, ищет кэш по запасным ключа в 
+                # restore-keys
                 restore-keys: |
                   ${{runner.os}}-cache-file
                   ${{runner.os}}-
